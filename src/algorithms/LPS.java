@@ -10,8 +10,8 @@ public class LPS {
   }
 
   public static int lpsNaive(String a, int start, int end) {
-    if (start >= end)
-      return 0;
+    if (start == end)
+      return 1;
     if (a.charAt(start) == a.charAt(end)) {
       return 2 + lpsNaive(a, start + 1, end - 1);
     } else {
