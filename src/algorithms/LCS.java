@@ -5,19 +5,16 @@ public class LCS {
     String a = "ACBEA";
     String b = "ADCA";
 
-    char[] p = a.toCharArray();
-    char[] q = b.toCharArray();
-
-    System.out.println(lcs(p, q, p.length - 1, q.length - 1));
+    System.out.println(lcs(a, b, a.length() - 1, b.length() - 1));
     System.out.println(lcsDP(a, b));
   }
 
-  public static int lcs(char[] a, char[] b, int m, int n) {
+  public static int lcs(String a, String b, int m, int n) {
     if (m == 0 || n == 0) {
       return 0;
     }
 
-    if (a[m] == b[n])
+    if (a.charAt(m) == b.charAt(n))
       return 1 + lcs(a, b, m - 1, n - 1);
     else
       return Math.max(lcs(a, b, m - 1, n), lcs(a, b, m, n - 1));
