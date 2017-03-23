@@ -11,7 +11,7 @@ public class LCS {
 
   public static int lcs(String a, String b, int m, int n) {
     if (m == 0 || n == 0) {
-      return 0;
+      return 1;
     }
 
     if (a.charAt(m) == b.charAt(n))
