@@ -11,10 +11,13 @@ public class LCS {
     System.out.println(lcsDP(a, b));
 
     // Once pointer table is populated.
-    System.out.println("LCS string " + getLCSString(a));
   }
 
   public static int lcs(String a, String b, int m, int n) {
+    if (a == null || b == null || a.length() == 0 || b.length() == 0) {
+      return 0;
+    }
+
     if (m < 0 || n < 0) {
       return 0;
     }
