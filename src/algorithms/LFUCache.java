@@ -54,8 +54,10 @@ public class LFUCache {
     }
     node.next.keys.add(key);
     nodeMap.put(key, node.next);
+
     if (node.keys.size() == 0)
       remove(node);
+
   }
 
   public void set(int key, int value) {
