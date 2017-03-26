@@ -3,6 +3,7 @@ package algorithms;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
 public class Trie {
   class TrieNode {
@@ -18,6 +19,10 @@ public class Trie {
 
     public boolean contains(char c) {
       return map.containsKey(c);
+    }
+
+    public Set<Character> suggestNext() {
+      return map.keySet();
     }
 
     public TrieNode insert(char c) {
@@ -80,5 +85,23 @@ public class Trie {
         return false;
     }
     return true;
+  }
+
+  public Set<Character> suggestNext() {
+    return suggestNext();
+  }
+
+  public TrieNode getTrieNodeForSubstring(String str) {
+    TrieNode temp = root;
+    for (int i = 0; i < str.length(); i++) {
+      temp = temp.get(str.charAt(i));
+      if (temp == null)
+        return null;
+    }
+    return temp;
+  }
+
+  public TrieNode getRoot() {
+    return root;
   }
 }
