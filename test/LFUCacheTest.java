@@ -29,6 +29,13 @@ public class LFUCacheTest {
     Assert.assertEquals(3, cache.get(3));
     Assert.assertEquals(4, cache.get(4));
 
+    cache = new LFUCache(1);
+    cache.set(2, 1);
+    Assert.assertEquals(1, cache.get(2));
+    cache.set(3, 2);
+    Assert.assertEquals(-1, cache.get(2));
+    Assert.assertEquals(2, cache.get(3));
+
   }
 
 }
