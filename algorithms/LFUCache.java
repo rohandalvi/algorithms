@@ -44,7 +44,6 @@ public class LFUCache {
 
     if (Objects.isNull(node.next)) {
       node.next = new Node(node.count + 1);
-      node.next.keys.add(key);
     } else if (node.next.count != node.count + 1) {
       Node n = new Node(node.count + 1);
       n.next = node.next;

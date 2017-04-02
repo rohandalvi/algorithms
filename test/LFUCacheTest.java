@@ -1,7 +1,5 @@
 package test;
 
-import static org.junit.Assert.fail;
-
 import algorithms.LFUCache;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -31,16 +29,6 @@ public class LFUCacheTest {
     Assert.assertEquals(3, cache.get(3));
     Assert.assertEquals(4, cache.get(4));
 
-  }
-
-  @Test
-  public void testGet() {
-    fail("Not yet implemented");
-  }
-
-  @Test
-  public void testSet() {
-    fail("Not yet implemented");
   }
 
 }
