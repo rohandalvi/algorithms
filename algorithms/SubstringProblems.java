@@ -1,5 +1,6 @@
 package algorithms;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -36,8 +37,31 @@ public class SubstringProblems {
     return maxLength;
   }
 
+  public static boolean rearrangeString(String str) {
+    if (str == null || str.length() == 0)
+      return false;
+
+    char[] c = str.toCharArray();
+    Arrays.sort(c);
+    str = new String(c);
+
+    int start = 0;
+    int end = str.length() - 1;
+
+    while (start < end) {
+      if (str.charAt(start) == str.charAt(end))
+        return false;
+      start++;
+      end--;
+    }
+    return true;
+  }
+
   public static void main(String[] args) {
     String s = "ADOBECODEBANC";
     System.out.println(lengthOfLongestSubstring(s));
+
+    String str = "a";
+    System.out.println(rearrangeString(str));
   }
 }

@@ -1,5 +1,9 @@
 package algorithms;
 
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.LinkedList;
+
 public class Tree {
   private class TreeNode {
     TreeNode left;
@@ -29,5 +33,11 @@ public class Tree {
 
     max = Math.max(max, left + right);
     return 1 + Math.max(left, right);
+  }
+
+  private void deserialize(String data) {
+    Deque<String> dq = new LinkedList<>();
+    dq.addAll(Arrays.asList(data.split(",")));
+
   }
 }
