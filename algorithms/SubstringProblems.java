@@ -1,8 +1,10 @@
 package algorithms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -63,5 +65,20 @@ public class SubstringProblems {
 
     String str = "a";
     System.out.println(rearrangeString(str));
+  }
+
+  public static List<String> allSubstrings(String str) {
+    List<String> list = new ArrayList<>();
+
+    int n = str.length();
+    for (int currLen = 1; currLen <= n; currLen++) {
+      for (int i = 0; i <= n - currLen + 1; i++) {
+        int end = i + currLen - 1;
+        String sub = str.substring(i, end);
+        System.out.println(sub);
+        list.add(sub);
+      }
+    }
+    return list;
   }
 }
