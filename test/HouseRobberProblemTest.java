@@ -19,7 +19,6 @@ public class HouseRobberProblemTest {
   public void test() {
     int[] cost = {1, 4, 5, 6, 10, 2, 3, 4};
     Assert.assertEquals(20, object.robI(cost));
-
     Assert.assertEquals(19, object.robII(cost));
   }
 
