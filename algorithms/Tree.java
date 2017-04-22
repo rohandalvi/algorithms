@@ -25,6 +25,36 @@ public class Tree {
     return max;
   }
 
+  public int maxBst(TreeNode root) {
+    ResultNode resultNode = maxBstHelper(root);
+    return resultNode.maxBST;
+  }
+
+  private ResultNode maxBstHelper(TreeNode root) {
+    if (root == null)
+      return new ResultNode();
+
+    ResultNode left = maxBstHelper(root.left);
+    ResultNode right = maxBstHelper(root.right);
+
+    ResultNode result = new ResultNode();
+    if (!left.isBST || !right.isBST || !inRange(left.maxValue, root.data, right.minValue)) {
+      result.isBST = false;
+      result.maxBST = Math.max(left.maxBST, right.maxBST);
+      return result;
+    }
+
+    result.maxBST = 1 + left.maxBST + right.maxBST;
+    result.minValue = root.left != null ? left.minValue : root.data;
+    result.maxValue = root.right != null ? right.maxValue : root.data;
+
+    return result;
+  }
+
+  private boolean inRange(int min, int val, int max) {
+    return val > min && val < max;
+  }
+
   private int maxDepth(TreeNode root) {
     if (root == null)
       return 0;
