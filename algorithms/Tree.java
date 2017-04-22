@@ -1,8 +1,10 @@
 package algorithms;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Tree {
   private class TreeNode {
@@ -69,5 +71,25 @@ public class Tree {
     Deque<String> dq = new LinkedList<>();
     dq.addAll(Arrays.asList(data.split(",")));
 
+  }
+
+  public int bottomLeftTreeValue(TreeNode root) {
+    if (root == null)
+      return Integer.MIN_VALUE;
+
+    List<Integer> list = new ArrayList<>();
+    bottomLeftTreeValueHelper(root, list, 0);
+    return list.get(list.size() - 1);
+  }
+
+  private void bottomLeftTreeValueHelper(TreeNode root, List<Integer> list, int level) {
+    if (root == null)
+      return;
+    if (level == list.size()) {
+      list.add(root.data);
+    }
+
+    bottomLeftTreeValueHelper(root.left, list, level + 1);
+    bottomLeftTreeValueHelper(root.right, list, level + 1);
   }
 }
