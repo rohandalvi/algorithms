@@ -24,6 +24,9 @@
  			<artifactId>maven-compiler-plugin</artifactId>
  			<version>3.6.1</version>
  			<configuration>
+				<includes>
+					<include>design/*.java</include>
+				</includes>
  				<source>1.8</source>
  				<target>1.8</target>
  			</configuration>
