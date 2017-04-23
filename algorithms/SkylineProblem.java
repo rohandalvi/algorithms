@@ -48,6 +48,7 @@ public class SkylineProblem {
       isStart = false;
       x = building[1];
       buildingPoints[index + 1] = new BuildingPoint(isStart, x, height);
+      index += 2;
     }
 
     Arrays.sort(buildingPoints);
@@ -78,7 +79,6 @@ public class SkylineProblem {
           // otherwise simply decrementing the key.
           return value - 1;
         });
-
       }
 
       int currHeight = map.lastKey();
@@ -86,7 +86,7 @@ public class SkylineProblem {
         // if there was a change in prev height then we should add this point to our result
         // as this is going to show up on our skyline
         prevHeight = currHeight;
-        result.add(new int[] {buildingPoint.x, buildingPoint.height});
+        result.add(new int[] {buildingPoint.x, currHeight});
       }
     }
     return result;
