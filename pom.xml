@@ -19,6 +19,8 @@
 	</dependencies>
 
 	<build>
+	  <sourceDirectory>algorithms/</sourceDirectory>
+	  <testSourceDirectory>test/</testSourceDirectory>
           <resources>
 	  	<resource>
 		  <directory>algorithms/</directory>
