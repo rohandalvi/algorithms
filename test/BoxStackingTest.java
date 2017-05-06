@@ -1,6 +1,7 @@
 package test;
 
 import geeks4geeks.BoxStacking;
+import junit.framework.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -20,7 +21,8 @@ public class BoxStackingTest {
     int[] height = {4, 5};
 
     int result = object.maxHeight(height, width, length, height.length);
-    System.out.println(result);
+    Assert.assertEquals(11, result);
+
   }
 
 }

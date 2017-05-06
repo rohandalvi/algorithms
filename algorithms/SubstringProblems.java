@@ -81,4 +81,47 @@ public class SubstringProblems {
     }
     return list;
   }
+
+  public List<String> print(String str) {
+    List<String> list = new ArrayList<>();
+    if (str == null || str.length() == 0)
+      return list;
+
+    for (int j = 1; j <= str.length(); j++) {
+      String result = str.substring(0, j);
+      System.out.println(result);
+      list.add(result);
+    }
+    return list;
+  }
+
+  public void purva(String str) {
+
+    char a = 'a';
+    char b = 'b';
+    System.out.println(a + b);
+    a = (char) (a + b);
+    b = (char) (a - b);
+    a = (char) (a - b);
+
+    System.out.println(a + " " + b);
+  }
+
+  private String reverse(String str) {
+
+    if (str == null || str.isEmpty())
+      return str;
+    char[] c = str.toCharArray();
+    int start = 0;
+    int end = c.length - 1;
+
+    while (start < end) {
+      char temp = c[start];
+      c[start] = c[end];
+      c[end] = temp;
+      start++;
+      end--;
+    }
+    return new String(c);
+  }
 }

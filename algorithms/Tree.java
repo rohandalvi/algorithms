@@ -92,4 +92,78 @@ public class Tree {
     bottomLeftTreeValueHelper(root.left, list, level + 1);
     bottomLeftTreeValueHelper(root.right, list, level + 1);
   }
+
+  public List<Integer> getCommonNodes(TreeNode root1, TreeNode root2) {
+    if (root1 == null || root2 == null)
+      return null;
+    List<Integer> list = new ArrayList<>();
+    traverseAndFind(root1, root2, list);
+    return list;
+  }
+
+  public List<Integer> getCommonNodesEfficient(TreeNode root1, TreeNode root2) {
+    if (root1 == null || root2 == null)
+      return null;
+    List<Integer> first = new ArrayList<>();
+    List<Integer> second = new ArrayList<>();
+
+    inorder(root1, first);
+    inorder(root2, second);
+
+    return intersectLists(first, second);
+  }
+
+  private List<Integer> intersectLists(List<Integer> first, List<Integer> second) {
+    if (first == null || first.size() == 0)
+      return first;
+    if (second == null || second.size() == 0)
+      return second;
+    List<Integer> list = new ArrayList<>();
+    int i = 0;
+    int j = 0;
+    while (i < first.size() && j < second.size()) {
+      if (first.get(i) == second.get(j)) {
+        list.add(first.get(i));
+        i++;
+        j++;
+      } else if (first.get(i) < second.get(j)) {
+        i++;
+      } else {
+        j++;
+      }
+    }
+    return list;
+  }
+
+  private void inorder(TreeNode root, List<Integer> list) {
+    if (root == null)
+      return;
+
+    inorder(root.left, list);
+    list.add(root.data);
+    inorder(root.right, list);
+  }
+
+  private void traverseAndFind(TreeNode root1, TreeNode root2, List<Integer> list) {
+    if (root1 == null)
+      return;
+
+    find(root1, root2, list);
+
+    traverseAndFind(root1.left, root2, list);
+    traverseAndFind(root1.right, root2, list);
+  }
+
+  private void find(TreeNode root1, TreeNode root2, List<Integer> list) {
+    if (root2 == null)
+      return;
+    if (root2.data == root1.data) {
+      list.add(root1.data);
+      return;
+    }
+    if (root1.data < root2.data)
+      find(root1, root2.left, list);
+    else
+      find(root1, root2.right, list);
+  }
 }

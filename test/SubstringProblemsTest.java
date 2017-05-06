@@ -15,8 +15,13 @@ public class SubstringProblemsTest {
 
   @Test
   public void test() {
-    String str = "rohan";
-    problems.allSubstrings(str);
+    String str = "you are a good girl";
+    // problems.allSubstrings(str);
+
+    // List<String> list = problems.print(new StringBuilder(str).reverse().toString());
+
+    problems.purva(null);
+
   }
 
 }
