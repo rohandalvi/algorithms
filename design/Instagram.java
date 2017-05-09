@@ -11,6 +11,16 @@ import java.util.PriorityQueue;
 import java.util.Random;
 import java.util.Set;
 
+/**
+ * 
+ * @author rohan.dalvi
+ *
+ * Features:
+ * 1. Add/delete user
+ * 2. Add/delete Post
+ * 3. Follow user
+ * 4. Generate Timeline
+ */
 public class Instagram {
   static int counter = 0;
   static Random random = new Random();
