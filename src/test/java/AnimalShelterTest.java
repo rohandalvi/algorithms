@@ -30,16 +30,4 @@ public class AnimalShelterTest {
     }
   }
 
-  @Test
-  public void testDequeueAny() {
-    for (int i = 0; i < 1000; i++) {
-      Animal a = object.dequeueAny();
-      if (i % 2 == 0) {
-        Assert.assertEquals(true, a instanceof Dog);
-      } else {
-        Assert.assertEquals(true, a instanceof Cat);
-      }
-    }
-  }
-
 }
