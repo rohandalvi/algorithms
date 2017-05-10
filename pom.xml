@@ -9,7 +9,11 @@
  
   <name>Algorithms</name>
   <url>http://maven.apache.org</url>
- 
+  <build>
+    <testSourceDirectory>
+      test/
+    </testSourceDirectory>
+  </build> 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
