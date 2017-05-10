@@ -13,6 +13,7 @@ public class AllPossibleStrings {
   public void printSpace(String str) {
     int n = str.length();
     dfs(1, n, "" + str.charAt(0), str);
+    
   }
 
   private void dfs(int index, int length, String temp, String str) {

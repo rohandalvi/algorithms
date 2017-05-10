@@ -17,6 +17,7 @@ public class AllPossibleStringsTest {
   public void test() {
     String str = "abc";
     object.printSpace(str);
+    
   }
 
 }
