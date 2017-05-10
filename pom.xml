@@ -9,7 +9,10 @@
  
   <name>Algorithms</name>
   <url>http://maven.apache.org</url>
- 
+  <properties>
+    <maven.compiler.testTarget>1.8</maven.compiler.testTarget>
+    <maven.compiler.testSource>1.8</maven.compiler.testSource>
+  </properties>  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
